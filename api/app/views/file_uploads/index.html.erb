@@ -1,14 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<h1>File upload</h1>
 
-<h1>File uploads</h1>
+<%= render "form" %>
 
-<div id="file_uploads">
-  <% @file_uploads.each do |file_upload| %>
-    <%= render file_upload %>
-    <p>
-      <%= link_to "Show this file upload", file_upload %>
-    </p>
-  <% end %>
+<br>
+
+<div>
+  <%= link_to "Back to file uploads", file_uploads_path %>
 </div>
-
-<%= link_to "New file upload", new_file_upload_path %>

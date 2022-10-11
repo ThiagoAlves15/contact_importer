@@ -1,22 +1,33 @@
-<%= form_with(model: file_upload) do |form| %>
-  <% if file_upload.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(file_upload.errors.count, "error") %> prohibited this file_upload from being saved:</h2>
-
-      <ul>
-        <% file_upload.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with url: file_uploads_path, method: :post do |form| %>
   <div>
-    <%= form.label :status, style: "display: block" %>
-    <%= form.number_field :status %>
+    <%= form.label :file, style: "display: block" %>
+    <%= form.file_field :file, accept: '.csv' %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.label :name, 'name header', style: "display: block" %>
+    <%= form.text_field :name, placeholder: 'Default: name', value: 'name' %>
   </div>
+
+  <div>
+    <%= form.label :email, 'email header', style: "display: block" %>
+    <%= form.text_field :email, placeholder: 'Default: email', value: 'email' %>
+  </div>
+
+  <div>
+    <%= form.label :phone, 'phone header', style: "display: block" %>
+    <%= form.text_field :phone, placeholder: 'Default: phone', value: 'phone' %>
+  </div>
+
+  <div>
+    <%= form.label :address, 'address header', style: "display: block" %>
+    <%= form.text_field :address, placeholder: 'Default: address', value: 'address' %>
+  </div>
+
+  <div>
+    <%= form.label :date_of_birth, 'date of birth header', style: "display: block" %>
+    <%= form.text_field :date_of_birth, placeholder: 'Default: date_of_birth', value: 'date_of_birth' %>
+  </div>
+
+  <%= form.button 'Import' %>
 <% end %>
